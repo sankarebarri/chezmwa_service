@@ -1,0 +1,115 @@
+body {
+  width: 90%;
+  max-width: 980px;
+  margin: 0 auto;
+  font: .9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  background-color: #362;
+}
+
+li {
+  color: white;
+  font-size: 2em;
+}
+
+h1, h2, h3, p {
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 3em;
+}
+
+p {
+  font-size: 2em;
+}
+
+.home_background {
+  background-image: url('images/bamako.jpg');
+  background: rgb(63,205,34);
+  background: linear-gradient(90deg, rgba(63,205,34,1) 0%, rgba(227,241,48,1) 35%, rgba(255,0,48,1) 100%);
+  height: 400px;
+
+}
+
+.form_search {
+  display: flex;
+  justify-content: space-around;
+}
+
+label {
+  font-size: 2em;
+}
+
+select {
+  min-width: 400px;
+  font-size: 1.5em;
+  border-radius: 10px;
+}
+
+input {
+  width: 80%;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-left: 10%;
+  border-radius: 15px;
+}
+
+.latest_listings {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.listing_card {
+  margin-left: 10px;
+}
+
+.card_details {
+
+  width: 90%;
+  margin-top: 0;
+  background-color: #0093E9;
+
+}
+
+img {
+  max-width: 90%;
+  height: 250px;
+}
+
+.popular_neigborhood {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.popular_neigborhood img {
+  max-width: 20em;
+  height: 20em;
+  margin: 0;
+}
+
+a:link, a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #698;
+}
+
+footer {
+  text-align: center;
+  background-color: #698;
+  font-size: 20px;
+  margin-top: 10px;
+}

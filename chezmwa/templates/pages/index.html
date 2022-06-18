@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="home_background">
+  <h1>House Rent ChezMwa</h1>
+  <p>Renting House In Mali Is Never The Same Again. With Our Site, You Don't
+    Have To Pay The Agent(COXER) Fee Anymore.
+  </p>
+
+  </p>
+  <form method="get" action={% url "search" %}>
+    {% csrf_token %}
+    <div class="form_search">
+      <div class="">
+        <label>Neigborhood</label>
+        <br>
+        <select name="neighborhood">
+          <option>Select Neigborhood</option>
+          {% for neighborhood in neighborhoods %}
+            <option>{{ neighborhood }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="">
+        <label>Maximum Price</label>
+        <br>
+        <select name="price">
+          <option>Select price in CFA</option>
+          <option>75000</option>
+          <option>150000</option>
+          <option>300000</option>
+          <option>500000</option>
+          <option>750000</option>
+          <option>1000000</option>
+          <option>2000000</option>
+          <option>5000000</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form_search">
+      <div class="">
+        <label>Bedrooms</label>
+        <br>
+        <select name="bedroom">
+          <option>Select Number of Bedrooms</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
+      <div class="">
+        <label>Bathrooms</label>
+        <br>
+        <select name="bathroom">
+          <option>Select Number of Bathrooms</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Search">
+  </form>
+</section>
+
+<h1>Latest Listings</h1>
+<section class="latest_listings">
+  {% for post in listings %}
+  <div class="listing_card">
+    <a href="{% url 'listing' post.id %}">
+      <h2>{{ post.title }}</h2>
+      <img src="{{ post.photo_main.url }}">
+    </a>
+    <div class="card_details">
+      <h3>{{ post.neighborhood }}</h3>
+      <h3>{{ post.price }}CFA/month</h3>
+      <h3>{{ post.bedrooms }} Bedrooms</h3>
+      <h3>{{ post.bathrooms }} Bathrooms</h3>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<h1>Popular Neigborhood</h1>
+<section class="popular_neigborhood">
+  {% for neighborhood in neighborhoods %}
+  <div class="neigborhood_card">
+    <h2><a href="{% url 'listings' %}?neighborhood_list={{ neighborhood }}">{{ neighborhood.neighborhood_name }}</a></h2>
+    <img class="card-img-top" src="{{ neighborhood.neighborhood_image.url }}" alt="">
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

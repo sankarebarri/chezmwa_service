@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/listings.css' %}">
+
+<section class="listings">
+  {% for post in listings %}
+  <div class="listing_card">
+    <a href="{% url 'listing' post.id %}">
+      <h2>{{ post.title }}</h2>
+      <img src="{{ post.photo_main.url }}">
+    </a>
+    <div class="card_details">
+      <h3>{{ post.neighborhood }}</h3>
+      <h3>{{ post.price }}CFA/month</h3>
+      <h3>{{ post.bedrooms }} Bedrooms</h3>
+      <h3>{{ post.bathrooms }} Bathrooms</h3>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

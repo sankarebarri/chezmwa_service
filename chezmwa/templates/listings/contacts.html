@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+<form method="POST">
+  {% csrf_token %}
+  <label>Name</label>
+  <input type="text" name="name" placeholder="A name you would like to be addressed with">
+
+  <label>E-mail</label>
+  <input type="email" name="email" placeholder="We would contact you back with this" required>
+
+  <label>Telephone</label>
+  <input type="tel" name="tel" placeholder="Put this if you would want us to call you, only Malian number">
+
+  <label>Message</label>
+  <textarea rows="8" cols="80" name="message" placeholder="I'm interested in this house..."></textarea>
+
+  <input type="submit" value="Send">
+</form>
+
+{% endblock %}
