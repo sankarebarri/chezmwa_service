@@ -1,5 +1,5 @@
 from django.db import models
-
+from .utils import generate_house_code
 class State(models.Model):
     state_name = models.CharField(max_length=20)
 
@@ -23,6 +23,7 @@ class Neighborhood(models.Model):
         return str(self.neighborhood_name)
 
 class Listing(models.Model):
+    #house_id = models.CharField(max_length=20, blank=True, default='house_code')
     title = models.CharField(max_length=200)
     state = models.ForeignKey(State, on_delete=models.DO_NOTHING)
     neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
@@ -46,3 +47,8 @@ class Listing(models.Model):
 
     def __str__(self):
         return f"{self.title} -> {self.neighborhood}"
+
+    # def save(self, *args, **kwargs):
+    #     if self.house_id == "":
+    #         self.house_id = generate_house_code()
+    #     return super().save(*args, **kwargs)

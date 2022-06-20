@@ -5,7 +5,8 @@ form {
 
 input[type="text"],
 input[type="tel"],
-input[type="email"] {
+input[type="email"],
+input[type="number"] {
   float: left;
   margin: 0;
   margin-bottom: 20px;
@@ -18,4 +19,9 @@ input[type="submit"] {
   margin: 0;
   margin-top: 20px;
   width:100%;
+}
+
+.message {
+  background-color: green;
+  color: white;
 }

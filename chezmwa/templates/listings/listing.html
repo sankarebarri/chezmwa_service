@@ -8,6 +8,7 @@
   <div class="listing_details">
     <div class="details">
       <h3>Details</h3>
+      <h3>House ID: {{ listing.id }}</h3>
       <p>{{ listing.bedrooms }} Bedrooms</p>
       <p>{{ listing.bathrooms }} Bathrooms</p>
       <p>{{ listing.price }} CFA</p>
@@ -78,6 +79,6 @@
     </div>
   </div>
 </section>
-<button type="button" name="button"><a href="{% url 'contact' %}">Contact</a></button>
+<button type="button" name="button"><a href="{% url 'contacts' %}?neighborhood_list={{ listing.id }}">Contact</a></button>
 <script type="text/javascript" src="{% static 'js/listing.js' %}"></script>
 {% endblock %}
