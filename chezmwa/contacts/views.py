@@ -7,7 +7,6 @@ def contacts(request):
     # This shoud be house id generated
     # generate_house_code
     house_id = request.GET.get('neighborhood_list')
-    print(house_id)
     name = ""
     email = ""
     telephone = 0
@@ -20,8 +19,8 @@ def contacts(request):
         telephone = request.POST['telephone']
         message = request.POST['message']
 
-    contact = Contact(name=name, email=email, telephone=telephone, message=message)
-    contact.save()
+        contact = Contact(name=name, email=email, telephone=telephone, message=message)
+        contact.save()
 
     send_mail(
         f'Property Listing Inquiry from {name}', #Subject
